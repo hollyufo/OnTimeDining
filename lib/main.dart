@@ -14,11 +14,10 @@ class MyApp extends StatelessWidget {
     final Map<String, WidgetBuilder> routes = {
       '/login': (BuildContext context) => LoginPage(),
       '/home': (BuildContext context) => HomePage(),
-      '/transaction': (BuildContext context) => TransactionPage(),
     };
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'bankly',
+      title: 'ontimmedining',
       initialRoute: '/login',
       routes: routes,
     );
