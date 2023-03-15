@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ontimedining/screens/HomePage.dart';
 
 
 void main() {
@@ -12,13 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Map<String, WidgetBuilder> routes = {
-      '/login': (BuildContext context) => LoginPage(),
       '/home': (BuildContext context) => HomePage(),
     };
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ontimmedining',
-      initialRoute: '/login',
+      initialRoute: '/home',
       routes: routes,
     );
   }
