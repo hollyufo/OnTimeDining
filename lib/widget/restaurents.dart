@@ -8,35 +8,59 @@ class RestaurantWidget extends StatefulWidget {
 }
 
 class _RestaurantWidgetState extends State<RestaurantWidget> {
-  List<dynamic> restaurants = [];
-
-  Future<void> _fetchRestaurants() async {
-    try {
-      final response = await http.get(Uri.parse('https://example.com/api/restaurants'));
-      final jsonData = jsonDecode(response.body);
-      setState(() {
-        restaurants = jsonData;
-      });
-    } catch (error) {
-      print(error);
-    }
-  }
+  List restaurants = [];
 
   @override
   void initState() {
     super.initState();
-    _fetchRestaurants();
+    fetchRestaurants();
+  }
+
+  Future<void> fetchRestaurants() async {
+    final response = await http.get(Uri.parse('http://localhost:8081/api/v1/controller/getallrestaurent'));
+    if (response.statusCode == 200) {
+      setState(() {
+        restaurants = jsonDecode(response.body);
+      });
+    } else {
+      throw Exception('Failed to load restaurants');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: restaurants.length,
-      itemBuilder: (BuildContext context, int index) {
-        final restaurant = restaurants[index];
-        return ListTile(
-          title: Text(restaurant['name']),
-          subtitle: Text(restaurant['address']),
+      itemBuilder: (context, index) {
+        return Card(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.network(restaurants[index]['image']),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      restaurants[index]['name'],
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      restaurants[index]['description'],
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         );
       },
     );

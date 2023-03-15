@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final Map<String, WidgetBuilder> routes = {
       '/home': (BuildContext context) => HomePage(),
+      '/menu': (BuildContext context) => Menu(),
     };
     return MaterialApp(
       debugShowCheckedModeBanner: false,

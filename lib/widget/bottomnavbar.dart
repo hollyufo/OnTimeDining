@@ -39,12 +39,6 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
-            // when you click on the home icon it will take you to the home page
-
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
             label: 'home',
           ),
           BottomNavigationBarItem(
