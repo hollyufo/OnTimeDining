@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../widget/bottomnavbar.dart';
+import '../widget/topnavbar.dart';
 // home page class
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -6,12 +9,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ontimmedining'),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(60),
+        child: CNavbar(Icons.home, Icons.search),
       ),
-      body: const Center(
+      body: Center(
         child: Text('Home Page'),
       ),
+      bottomNavigationBar: MyBottomNavBar(),
     );
   }
 }
