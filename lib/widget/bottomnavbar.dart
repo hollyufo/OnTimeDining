@@ -10,6 +10,7 @@ class MyBottomNavBar extends StatefulWidget {
 
 class _MyBottomNavBarState extends State<MyBottomNavBar> {
   int _selectedIndex = 0;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -26,7 +27,8 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
       case 2:
         Navigator.pushNamed(context, '/cart');
         break;
-      default:
+      case 3:
+        Navigator.pushNamed(context, '/orders');
         break;
     }
   }

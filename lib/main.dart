@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ontimedining/screens/Cart.dart';
 import 'package:ontimedining/screens/HomePage.dart';
 import 'package:ontimedining/screens/menuPage.dart';
+import 'package:ontimedining/screens/orders.dart';
 
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       '/home': (BuildContext context) => HomePage(),
       '/menu': (BuildContext context) => menuPage(),
       '/cart': (BuildContext context) => Cart(),
+      '/orders': (BuildContext context) => Orders(),
     };
     return MaterialApp(
       debugShowCheckedModeBanner: false,
